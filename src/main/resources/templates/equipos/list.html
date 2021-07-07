@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html
+        lang="en"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+<head th:replace="~{layouts/main_layout :: head(title = 'TechNet')}">
+</head>
+
+<body>
+<nav th:replace="~{layouts/main_layout :: nav}"  style="z-index: 9999;"></nav>
+
+<div
+        class="container"
+        style="padding: 20px;margin-top: 100px;min-height: 600px;padding-top: 0; z-index: 9998;"
+        th:fragment="content"
+>
+    <div
+            class="clean-blog-post"
+            style="padding: 20px;padding-bottom: 25px;margin: 15px;"
+    >
+        <!-- Submit New Post Button -->
+        <div class="row" style="margin: 0;" sec:authorize="isAuthenticated()">
+            <div class="col">
+                <a th:href="@{/equipos/submit}">
+                    <button class="btn btn-outline-primary float-right" type="button">
+                        <i class="icon-pencil"></i>Nuevo Equipo
+                    </button>
+                </a>
+            </div>
+        </div>
+
+        <!-- Quote -->
+        <div class="row" style="margin: 0;margin-top: 20px;">
+            <div class="col">
+                <div class="block-heading">
+                    <h2
+                            class="text-info d-flex justify-content-center align-items-center"
+                    >
+                        Equipos
+                    </h2>
+                    <p
+                            class="d-flex justify-content-center"
+                            style="color: rgb(112,116,120);"
+                    >
+                        <br />
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Posts -->
+        <div
+                class="row d-flex justify-content-center shadow-sm border rounded"
+                style="margin-left: 0;margin-right: 0;margin-top: 10px;padding-top: 25px;padding-bottom: 25px;"
+                th:each="equipo : ${equipos}"
+        >
+            <div class="col-lg-11 order-12">
+                <h5 th:text="${equipo.getNameCompany()}">
+                    Hidroneumaticos Borrero
+                </h5>
+                <div class="info">
+              <span
+                      class="text-muted" style="margin-right: 0;">
+                <span
+                        th:title="${equipo.getCreationDate()}"
+                        th:datetime="${equipo.getCreationDate()}"
+                        th:text="${equipo.getPrettyTime()}"
+                >4 hours ago by</span>by <a
+                      href="#"
+                      style="color: rgb(0,123,255);"
+                      th:href="@{'/u/' + ${equipo.getCreatedBy()}}"
+                      th:text="${equipo.getCreatedBy()}"
+              >John Smith</a
+              ></span>
+                </div>
+                <p style="font-size: 15px;" th:text="${equipo.marca}">
+                    Caterpillar 320c
+                </p>
+                <a th:href="@{'/equipos/' + ${equipo.id}}">
+                    <button class="btn btn-outline-primary btn-sm" type="button">
+                        Read More</button
+                    >
+                </a>
+                <a
+                        href="#"
+                        style="margin-left: 20px;"
+                        th:href="@{'/equipos/' + ${equipo.id}}"
+
+                >78 equipos</a
+                >
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

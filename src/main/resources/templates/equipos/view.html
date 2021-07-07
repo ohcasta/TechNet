@@ -1,10 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<html
+        lang="en"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+<head
+        th:replace="~{layouts/main_layout :: head(title = 'TechNet - Spring Boot Reddit Clone')}"
+>
 </head>
+
 <body>
+<nav th:replace="~{layouts/main_layout :: nav}"></nav>
+
+<main class="page faq-page">
+    <section
+            class="clean-block clean-faq dark"
+            style="background-color: rgb(255,255,255);"
+    >
+        <div class="container">
+            <div class="block-heading">
+                <h2 class="text-info">especificaciones</h2>
+                <p>detalles de los equipos.<br /></p>
+            </div>
+
+            <div class="block-content">
+                <div class="alert alert-success" role="alert" th:if="${success}">
+                    el nuevo equipo ha sido creado con exito!
+                </div>
+
+                <div class="col-lg-11 order-12">
+                    <h5 th:text="${equipo.getNameCompany()}">
+                        Hidroneumaticos Borrero
+                    </h5>
+                    <div class="info">
+              <span
+                      class="text-muted" style="margin-right: 0;">
+                <span
+                        th:title="${equipo.getCreationDate()}"
+                        th:datetime="${equipo.getCreationDate()}"
+                        th:text="${equipo.getPrettyTime()}"
+                >4 hours ago by</span>by <a
+                      href="#"
+                      style="color: rgb(0,123,255);"
+                      th:href="@{'/u/' + ${equipo.getCreatedBy()}}"
+                      th:text="${equipo.getCreatedBy()}"
+              >John Smith</a
+              ></span>
+                    </div>
+
+                    <p
+                            th:text="${equipo.detalles}"
+                            style="font-size: 16px;margin-bottom: 20px;margin-top: 10px;"
+                    >
+                        Falla en la bomba hidraulica
+                    </p>
+
+
+                    <hr />
+                </div>
+
+    </section>
+</main>
 
 </body>
 </html>

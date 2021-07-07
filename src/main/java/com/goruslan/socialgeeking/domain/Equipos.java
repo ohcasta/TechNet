@@ -11,6 +11,9 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 @Entity
 @RequiredArgsConstructor
@@ -21,7 +24,10 @@ import java.time.ZoneId;
 //nombre empresa, ubicacion, marca, serie, modelo, detalles, horometro,
 //estado: operativo o no
 //
-public class Equipos {
+public class Equipos extends Auditable {
+
+    @Id
+    @GeneratedValue
     private Long id;
 
     @NonNull
@@ -51,16 +57,7 @@ public class Equipos {
     @ManyToOne
     private User user;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    @Id
-    public Long getId() {
-        return id;
-    }
-
-    @OneToMany(fetch = FetchType.EAGER)
+    /*@OneToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "equipos_user",
             joinColumns = @JoinColumn(name = "user_id",referencedColumnName = "id"),
@@ -71,12 +68,12 @@ public class Equipos {
 
     public void addUser(User user) {
         users.add(user);
-    }
+    }*/
 
-    /*public String getPrettyTime() {
+    public String getPrettyTime() {
         PrettyTime pt = BeanUtil.getBean(PrettyTime.class);
         return pt.format(convertToDateViaInstant(getCreationDate()));
-    }*/
+    }
 
     private Date convertToDateViaInstant(LocalDateTime dateToConvert) {
         return java.util.Date.from(dateToConvert.atZone(ZoneId.systemDefault()).toInstant());

@@ -67,7 +67,7 @@ public class EquiposController {
     @PostMapping("/equipos/submit")
     public String createEquipo(@Valid Equipos equipo, BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes) {
         if( bindingResult.hasErrors()){
-            logger.info("Validation error while submitting a new post.");
+            logger.info("Validation error while submitting a new equipment.");
             model.addAttribute("equipos", equipo);
             return "equipos/submit";
         } else {
