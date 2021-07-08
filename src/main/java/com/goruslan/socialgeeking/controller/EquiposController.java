@@ -46,11 +46,7 @@ public class EquiposController {
         if( equipos.isPresent() ) {
             Equipos currentEquipos = equipos.get();
 
-            model.addAttribute("id", currentEquipos.getId());
-            model.addAttribute("estado", currentEquipos.getNameCompany());
-            model.addAttribute("marca", currentEquipos.getMarca());
-            model.addAttribute("horometro", currentEquipos.getHorometro());
-            model.addAttribute("detalles", currentEquipos.getDetalles());
+            model.addAttribute("equipo", currentEquipos);
             model.addAttribute("success", model.containsAttribute("success"));
             return "equipos/view";
 
@@ -60,7 +56,7 @@ public class EquiposController {
     }
     @GetMapping("/equipos/submit")
     public String newEquiposForm(Model model){
-        model.addAttribute("Equipos", new Equipos());
+        model.addAttribute("equipos", new Equipos());
         return "equipos/submit";
     }
 

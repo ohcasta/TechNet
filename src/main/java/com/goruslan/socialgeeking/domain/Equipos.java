@@ -48,11 +48,11 @@ public class Equipos extends Auditable {
 
     @NonNull
     @NotEmpty(message = "Ingresa el horometro del equipo.")
-    private Integer  horometro;
+    private String horometro;
 
     @NonNull
     @NotEmpty(message = "Estado operativo.")
-    private boolean  estado= true;
+    private String estado;
 
     @ManyToOne
     private User user;

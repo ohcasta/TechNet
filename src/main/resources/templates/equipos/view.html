@@ -29,7 +29,7 @@
                 </div>
 
                 <div class="col-lg-11 order-12">
-                    <h5 th:text="${equipo.getNameCompany()}">
+                    <h5 th:text="${equipo.nameCompany}">
                         Hidroneumaticos Borrero
                     </h5>
                     <div class="info">
@@ -49,11 +49,41 @@
                     </div>
 
                     <p
-                            th:text="${equipo.detalles}"
+                            th:text="'Detalles: ' + ${equipo.detalles}"
                             style="font-size: 16px;margin-bottom: 20px;margin-top: 10px;"
                     >
                         Falla en la bomba hidraulica
                     </p>
+
+                    <p
+                            th:text="'Marca: ' + ${equipo.marca}"
+                            style="font-size: 16px;margin-bottom: 20px;margin-top: 10px;"
+                    >
+                        Falla en la bomba hidraulica
+                    </p>
+
+                    <p
+                            th:text="'Serie: ' + ${equipo.serie}"
+                            style="font-size: 16px;margin-bottom: 20px;margin-top: 10px;"
+                    >
+                        Falla en la bomba hidraulica
+                    </p>
+
+                    <p
+                            th:text="'Horometro: ' + ${equipo.horometro}"
+                            style="font-size: 16px;margin-bottom: 20px;margin-top: 10px;"
+                    >
+                        Falla en la bomba hidraulica
+                    </p>
+
+                    <p
+                            th:text="'Estado: ' + ${equipo.estado}"
+                            style="font-size: 16px;margin-bottom: 20px;margin-top: 10px;"
+                    >
+                        Falla en la bomba hidraulica
+                    </p>
+
+
 
 
                     <hr />

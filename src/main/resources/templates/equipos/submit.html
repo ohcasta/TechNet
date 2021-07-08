@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{layouts/main_layout :: head(title = 'TechNet')}">
+<head th:replace="~{equipos/list :: head(title = 'TechNet')}">
 </head>
 <body>
-<nav th:replace="~{layouts/main_layout :: nav}"></nav>
+<nav th:replace="~{equipos/list :: nav}"></nav>
 <main class="page login-page">
     <section
             class="clean-block clean-form dark"
@@ -14,7 +14,7 @@
             <div class="block-heading" style="padding-top: 40px;">
                 <h2 class="text-info">Nuevo Equipo</h2>
                 <p>
-                  Ingrese los datos del nuebo equipo.<br />
+                  Ingrese los datos del nuevo equipo.<br />
                 </p>
             </div>
             <form
@@ -24,7 +24,7 @@
                     class="shadow"
             >
                 <div class="form-group">
-                    <label for="nameCompany">NOmbre de la Compañia</label
+                    <label for="nameCompany">Nombre de la Compañia</label
                     ><input
                         id="nameCompany"
                         class="form-control item"

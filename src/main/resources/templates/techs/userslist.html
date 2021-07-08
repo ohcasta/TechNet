@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html
+        lang="en"
+        xmlns:th="http://www.thymeleaf.org"
+>
+<head th:replace="~{layouts/main_layout :: head(title = 'TechNet')}">
+</head>
+
+<body>
+<nav th:replace="~{layouts/main_layout :: nav}"  style="z-index: 9999;"></nav>
+
+<div
+        class="container"
+        style="padding: 20px;margin-top: 100px;min-height: 600px;padding-top: 0; z-index: 9998;"
+        th:fragment="content"
+>
+    <div
+            class="clean-blog-post"
+            style="padding: 20px;padding-bottom: 25px;margin: 15px;"
+    >
+
+        <!-- Quote -->
+        <div class="row" style="margin: 0;margin-top: 20px;">
+            <div class="col">
+                <div class="block-heading">
+                    <h2
+                            class="text-info d-flex justify-content-center align-items-center"
+                    >
+                        Our techs
+                    </h2>
+                    <p
+                            class="d-flex justify-content-center"
+                            style="color: rgb(112,116,120);"
+                    >
+                        <br />
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Posts -->
+        <div
+                class="row d-flex justify-content-center shadow-sm border rounded"
+                style="margin-left: 0;margin-right: 0;margin-top: 10px;padding-top: 25px;padding-bottom: 25px;"
+                th:each="user : ${users}"
+        >
+            <div class="col-lg-11 order-12">
+                <h5 th:text="'Full Name: ' + ${user.fullName}">
+                    Hidroneumaticos Borrero
+                </h5>
+                <div class="info">
+
+                </div>
+                <p style="font-size: 15px;" th:text="'Email: ' + ${user.email}">
+                    Caterpillar 320c
+                </p>
+                <p style="font-size: 15px;" th:text="'Education: ' + ${user.education}">
+                    Caterpillar 320c
+                </p>
+                <p style="font-size: 15px;" th:text="'Experience: ' + ${user.experience}">
+                    Caterpillar 320c
+                </p>
+                <p style="font-size: 15px;" th:text="'Skills: ' + ${user.skills}">
+                    Caterpillar 320c
+                </p>
+                <p style="font-size: 15px;" th:text="'Business: ' + ${user.business}">
+                    Caterpillar 320c
+                </p>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

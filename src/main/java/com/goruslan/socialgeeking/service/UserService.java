@@ -1,5 +1,6 @@
 package com.goruslan.socialgeeking.service;
 
+import com.goruslan.socialgeeking.domain.Equipos;
 import com.goruslan.socialgeeking.domain.User;
 import com.goruslan.socialgeeking.repository.UserRepository;
 import org.slf4j.LoggerFactory;
@@ -8,6 +9,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -54,6 +56,10 @@ public class UserService {
 
     public void sendActivationEmail(User user) {
 
+    }
+
+    public List<User> findAll() {
+        return userRepository.findAll();
     }
 
 }
